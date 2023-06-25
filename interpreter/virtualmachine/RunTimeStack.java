@@ -25,11 +25,18 @@ class RunTimeStack {
         return val;
     }
 
+    public int pop() {
+        return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+    }
+
     public static void main(String[] args) {
         RunTimeStack rts = new RunTimeStack();
         rts.push(2);
         rts.push(3);
+        rts.push(2312312);
 
+        assert rts.runTimeStack.size() == 4;
         rts.runTimeStack.forEach(v -> System.out.println(v));
+        System.out.println(rts.pop());
     }
 }
