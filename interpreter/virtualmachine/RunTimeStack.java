@@ -24,4 +24,12 @@ class RunTimeStack {
         runTimeStack.add(val);
         return val;
     }
+
+    public static void main(String[] args) {
+        RunTimeStack rts = new RunTimeStack();
+        rts.push(2);
+        rts.push(3);
+
+        rts.runTimeStack.forEach(v -> System.out.println(v));
+    }
 }
