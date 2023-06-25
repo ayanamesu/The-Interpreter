@@ -16,5 +16,12 @@ class RunTimeStack {
         // point of our language, so its frame pointer is 0.
         framePointer.add(0);
     }
+    public int peek() {
+        return runTimeStack.get(runTimeStack.size() - 1);
+    }
 
+    public int push(int val) {
+        runTimeStack.add(val);
+        return val;
+    }
 }
