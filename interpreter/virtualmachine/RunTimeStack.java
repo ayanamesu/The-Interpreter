@@ -69,7 +69,9 @@ class RunTimeStack {
     public void newFrameAt(int offsetFromTopOfRunStack) {
         int frameIndex = runTimeStack.size() - offsetFromTopOfRunStack;
         framePointer.push(frameIndex);
+
     }
+
 
     public void popFrame() {
         int frameIndex = framePointer.pop();
@@ -83,15 +85,19 @@ class RunTimeStack {
         rts.push(1);
         rts.push(2);
         rts.push(3);
-        rts.framePointer.push(3);
         rts.push(4);
+        rts.newFrameAt(1);
         rts.push(5);
         rts.push(6);
-        rts.framePointer.push(6);
         rts.push(7);
         rts.push(8);
-        rts.push(123456789);
-        rts.framePointer.push(8);
+        rts.newFrameAt(2);
+//        rts.popFrame();
+
+
+
+
+        assert rts.runTimeStack.get(rts.framePointer.peek()+0) == 6;
 
         String stackDump = rts.dump();
         System.out.println(stackDump);
