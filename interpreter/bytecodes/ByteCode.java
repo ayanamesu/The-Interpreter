@@ -7,6 +7,18 @@ public interface ByteCode {
             case "LIT" -> new LitCode(args);
             case "HALT" -> new HaltCode(args);
             case "WRITE" -> new WriteCode(args);
+            case "ARGS" -> new ArgsCode(args);
+            case "BOP" -> new BopCode(args);
+            case "CALL" -> new CallCode(args);
+            case "DUMP" -> new DumpCode(args);
+            case "FALSEBRANCH" -> new FalseBranchCode(args);
+            case "GOTO" -> new GoToCode(args);
+            case "LABEL" -> new LabelCode(args);
+            case "LOAD" -> new LoadCode(args);
+            case "POP" -> new PopCode(args);
+            case "READ" -> new ReadCode(args);
+            case "RETURN" -> new ReturnCode(args);
+            case "STORE" -> new StoreCode(args);
             default -> throw new IllegalArgumentException();
         };
     }
