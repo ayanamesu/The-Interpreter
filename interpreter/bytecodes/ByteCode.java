@@ -13,7 +13,7 @@ public interface ByteCode {
 //            case "CALL" -> new CallCode(args);
 //            case "DUMP" -> new DumpCode(args);
 //            case "FALSEBRANCH" -> new FalseBranchCode(args);
-//            case "GOTO" -> new GoToCode(args);
+            case "GOTO" -> new GoToCode(args);
 //            case "LABEL" -> new LabelCode(args);
 //            case "LOAD" -> new LoadCode(args);
 //            case "POP" -> new PopCode(args);

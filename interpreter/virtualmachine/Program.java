@@ -1,6 +1,8 @@
 package interpreter.virtualmachine;
 
 import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.GoToCode;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +51,11 @@ public class Program {
      * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
      */
     public void resolveAddress() {
-
+        for (int i = 0; i < this.program.size(); i++) {
+            ByteCode bc = this.program.get(i);
+            if(bc instanceof  GoToCode goToCode) {
+                goToCode.setAddress();
+            }
+        }
     }
 }
