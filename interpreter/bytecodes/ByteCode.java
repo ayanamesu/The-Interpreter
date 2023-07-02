@@ -1,7 +1,8 @@
 package interpreter.bytecodes;
-
+import interpreter.virtualmachine.VirtualMachine;
 public interface ByteCode {
 
+    void execute(VirtualMachine vm);
     static ByteCode getInstance(String type, String[] args ) {
         return switch (type) {
             case "LIT" -> new LitCode(args);
