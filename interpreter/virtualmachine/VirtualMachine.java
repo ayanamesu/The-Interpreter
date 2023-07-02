@@ -20,4 +20,8 @@ public class VirtualMachine {
     public void push(int valueToPush) {
         this.runTimeStack.push(valueToPush);
     }
+
+    public void halt() {
+        this.isRunning = isRunning;
+    }
 }
