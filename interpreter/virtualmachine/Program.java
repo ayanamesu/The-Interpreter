@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Program {
 
-  //  private List<ByteCode> program;
+//    private List<ByteCode> program;
 
     /**
      * Instantiates a program object using an
@@ -27,17 +27,17 @@ public class Program {
      * @param programCounter index of bytecode to get.
      * @return a bytecode.
      */
- //   public ByteCode getCode(int programCounter) {
- //       return null;
-  //  }
+//    public ByteCode getCode(int programCounter) {
+//        return null;
+//    }
 
     /**
      * Adds a bytecode instance to the Program List.
      * @param c bytecode to be added
      */
- //   public void addByteCode(ByteCode c) {
-
- //   }
+//    public void addByteCode(ByteCode c) {
+//
+//    }
 
     /**
      * Makes multiple passes through the program ArrayList resolving
