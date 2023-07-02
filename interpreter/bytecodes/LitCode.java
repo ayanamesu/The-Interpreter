@@ -12,6 +12,7 @@ public class LitCode implements ByteCode{
         }
 
     }
+    // Test Execute later
     @Override
     public void execute(VirtualMachine vm) {
         vm.push(this.valueToPush);
@@ -19,13 +20,19 @@ public class LitCode implements ByteCode{
 
     @Override
     public String toString() {
-        String base = "LIT" + this.valueToPush;
+        String base = "LIT " + this.valueToPush;
 
         if(this.id != null) {
-            base += " " + this.id + "\tint " +  this.id;
+            base += " "+ this.id + "\tint " +  this.id;
         }
         return base;
     }
+
+    public static void main(String[] args) {
+        String[] x = {"LIT", "1", "VariableName"};
+        LitCode c = new LitCode(x);
+        System.out.println(c);
+     }
 
 }
 

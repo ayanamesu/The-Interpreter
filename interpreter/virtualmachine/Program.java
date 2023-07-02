@@ -1,5 +1,7 @@
 package interpreter.virtualmachine;
 
+import interpreter.bytecodes.ByteCode;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Program {
@@ -27,9 +29,9 @@ public class Program {
      * @param programCounter index of bytecode to get.
      * @return a bytecode.
      */
-//    public ByteCode getCode(int programCounter) {
-//        return null;
-//    }
+    public ByteCode getCode(int programCounter) {
+        return null;
+    }
 
     /**
      * Adds a bytecode instance to the Program List.

@@ -7,10 +7,10 @@ public class WriteCode implements ByteCode {
     public WriteCode(String[] args) {
 
     }
-    @Override
-    public void init(ArrayList<String> args) {
-        // Initialize with arguments if needed
-    }
+//    @Override
+//    public void init(ArrayList<String> args) {
+//        // Initialize with arguments if needed
+//    }
 
     @Override
     public void execute(VirtualMachine vm) {
