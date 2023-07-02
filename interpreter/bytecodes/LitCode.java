@@ -20,6 +20,10 @@ public class LitCode implements ByteCode{
     @Override
     public String toString() {
         String base = "LIT" + this.valueToPush;
+
+        if(this.id != null) {
+            base += " " + this.id + "\tint " +  this.id;
+        }
         return base;
     }
 
