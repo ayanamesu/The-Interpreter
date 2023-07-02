@@ -23,5 +23,11 @@ public class GoToCode implements ByteCode {
         public String toString () {
             return "GOTO " + id;
         }
+    public static void main(String[] args) {
+        String[] x = {"label", "1"};
+        GoToCode c = new GoToCode(x);
+        System.out.println(c);
     }
+}
+
 

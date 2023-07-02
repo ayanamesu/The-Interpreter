@@ -31,7 +31,7 @@ public class LitCode implements ByteCode{
     }
 
     public static void main(String[] args) {
-        String[] x = {"LIT", "1", "VariableName"};
+        String[] x = {"LIT", "1"};
         LitCode c = new LitCode(x);
         System.out.println(c);
      }

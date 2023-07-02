@@ -26,4 +26,11 @@ public class FalseBranchCode implements ByteCode {
     public String toString() {
         return "FALSEBRANCH " + id;
     }
-}
+
+    public static void main(String[] args) {
+        String[] x = {"label", "1"};
+        FalseBranchCode c = new FalseBranchCode(x);
+        System.out.println(c);
+        }
+    }
+
