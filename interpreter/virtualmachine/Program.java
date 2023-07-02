@@ -1,6 +1,7 @@
 package interpreter.virtualmachine;
 
 import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.CallCode;
 import interpreter.bytecodes.FalseBranchCode;
 import interpreter.bytecodes.GoToCode;
 
@@ -58,6 +59,9 @@ public class Program {
                 goToCode.setAddress();
             } else if (bc instanceof  FalseBranchCode falseBranchCode) {
                 falseBranchCode.setAddress();
+
+            } else if (bc instanceof CallCode callCode) {
+                callCode.setAddress();
 
             }
         }
