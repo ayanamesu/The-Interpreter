@@ -6,6 +6,7 @@ public interface ByteCode {
         return switch (type) {
             case "LIT" -> new LitCode(args);
             case "HALT" -> new HaltCode(args);
+            case "WRITE" -> new WriteCode(args);
             default -> throw new IllegalArgumentException();
         };
     }

@@ -35,9 +35,9 @@ public class Program {
      * Adds a bytecode instance to the Program List.
      * @param c bytecode to be added
      */
-//    public void addByteCode(ByteCode c) {
-//
-//    }
+    public void addByteCode(ByteCode c) {
+
+    }
 
     /**
      * Makes multiple passes through the program ArrayList resolving

@@ -29,16 +29,19 @@ public final class ByteCodeLoader {
      *                                 loadCodes fails.
      */
     public Program loadCodes() throws InvalidProgramException {
+        Program program;
         try (BufferedReader reader = new BufferedReader(new FileReader(codSourceFileName))) {
             String line;
             String[] items;
             String byteCodeName;
             ByteCode bc;
+            program = new Program();
             for(line = reader.readLine(); line != null; line = reader.readLine()) {
                 items = line.split( "\\s+");
                 byteCodeName = items[0];
 //                System.out.println(Arrays.toString(items));
                 bc = ByteCode.getInstance(byteCodeName, items);
+                program.addByteCode(bc);
 
             }
 
@@ -47,7 +50,7 @@ public final class ByteCodeLoader {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return program;
      }
 }
 
