@@ -32,4 +32,8 @@ public class VirtualMachine {
     public void setProgramCounter(int pc) {
         this.programCounter = pc;
     }
+
+    public int pop() {
+        return runTimeStack.pop();
+    }
 }
