@@ -16,9 +16,14 @@ public class FalseBranchCode implements ByteCode {
         int value = vm.pop(); // Remove the top value from the stack
         if (value == 0) {
             vm.setProgramCounter(valueToPush); // Jump to the resolved address if value is 0
-        }
+        } // If value is not 0, move to the next ByteCode (do nothing)
     }
 
     public void setAddress() {
+        this.valueToPush = valueToPush;
+    }
+    @Override
+    public String toString() {
+        return "FALSEBRANCH " + id;
     }
 }
