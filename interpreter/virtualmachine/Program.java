@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Program {
 
-//    private List<ByteCode> program;
+    private List<ByteCode> program;
 
     /**
      * Instantiates a program object using an
