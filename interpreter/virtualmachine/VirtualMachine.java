@@ -28,4 +28,8 @@ public class VirtualMachine {
     public int peek() {
         return runTimeStack.peek();
     }
+
+    public void setProgramCounter(int pc) {
+        this.programCounter = pc;
+    }
 }

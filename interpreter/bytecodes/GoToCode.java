@@ -3,24 +3,25 @@ import interpreter.virtualmachine.VirtualMachine;
 public class GoToCode implements ByteCode {
     private String id;
     private int valueToPush;
+
     public GoToCode(String[] args) {
-    }
-
-    @Override
-    public void execute(VirtualMachine vm) {
-
-    }
-
-    public void setAddress() {
-
-    }
-    @Override
-    public String toString() {
-        String base = "GOTO " + this.valueToPush;
-
-        if(this.id != null) {
-            base += " "+ this.id + "\tint " +  this.id;
+        if (args.length > 0) {
+            id = args[0];
+            }
         }
-        return base;
+
+        @Override
+        public void execute (VirtualMachine vm){
+            vm.setProgramCounter(this.valueToPush);
+        }
+
+        public void setAddress () {
+            this.valueToPush = valueToPush;
+        }
+
+        @Override
+        public String toString () {
+            return "GOTO " + id;
+        }
     }
-}
+
