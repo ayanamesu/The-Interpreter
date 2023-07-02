@@ -17,5 +17,11 @@ public class LitCode implements ByteCode{
         vm.push(this.valueToPush);
     }
 
+    @Override
+    public String toString() {
+        String base = "LIT" + this.valueToPush;
+        return base;
+    }
+
 }
 
