@@ -24,4 +24,8 @@ public class VirtualMachine {
     public void halt() {
         this.isRunning = isRunning;
     }
+
+    public int peek() {
+        return runTimeStack.peek();
+    }
 }
