@@ -16,7 +16,7 @@ public interface ByteCode {
             case "GOTO" -> new GoToCode(args);
 //            case "LABEL" -> new LabelCode(args);
             case "LOAD" -> new LoadCode(args);
-//            case "POP" -> new PopCode(args);
+            case "POP" -> new PopCode(args);
 //            case "READ" -> new ReadCode(args);
 //            case "RETURN" -> new ReturnCode(args);
 //            case "STORE" -> new StoreCode(args);
