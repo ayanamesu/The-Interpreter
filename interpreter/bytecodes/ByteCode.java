@@ -8,7 +8,7 @@ public interface ByteCode {
             case "LIT" -> new LitCode(args);
             case "HALT" -> new HaltCode(args);
             case "WRITE" -> new WriteCode(args);
-//            case "ARGS" -> new ArgsCode(args);
+            case "ARGS" -> new ArgsCode();
 //            case "BOP" -> new BopCode(args);
             case "CALL" -> new CallCode(args);
 //            case "DUMP" -> new DumpCode(args);
