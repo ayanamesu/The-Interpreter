@@ -29,14 +29,14 @@ public class CallCode implements ByteCode {
         this.address = address;
     }
     public static void main(String[] args) {
-        // Assume the RuntimeStack has the following values
+
         int[] runtimeStack = {0, 1, 2, 3, 4, 5};
         int currentFrameOffset = 3;
 
         // Create an instance of CallCode
         CallCode callCode = new CallCode(new String[]{"CALL", "f<<3>>"});
 
-        // Determine the address dynamically based on the runtime stack
+
         int address = runtimeStack[currentFrameOffset] + 1; // Replace with your address resolution logic
 
 
