@@ -4,13 +4,14 @@ import interpreter.virtualmachine.VirtualMachine;
 import java.util.ArrayList;
 import java.util.List;
 public class WriteCode implements ByteCode {
-    public WriteCode(String[] args) {
+    private ArrayList<String> arguments;
 
+    public WriteCode(String[] args) {
     }
-//    @Override
-//    public void init(ArrayList<String> args) {
-//        // Initialize with arguments if needed
-//    }
+
+    public void init(ArrayList<String> args) {
+        arguments = args;
+    }
 
     @Override
     public void execute(VirtualMachine vm) {
@@ -23,5 +24,14 @@ public class WriteCode implements ByteCode {
         // Generate the dump syntax
         return "WRITE";
     }
-}
+
+    public static void main(String[] args) {
+            // Create an instance of WriteCode
+            WriteCode writeCode = new WriteCode(args);
+
+            // Print the dumping syntax using the toString method
+            System.out.println(writeCode.toString());
+        }
+    }
+
 

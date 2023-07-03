@@ -4,9 +4,8 @@ import interpreter.bytecodes.ByteCode;
 import interpreter.bytecodes.CallCode;
 import interpreter.bytecodes.FalseBranchCode;
 import interpreter.bytecodes.GoToCode;
-
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class Program {
 
@@ -17,32 +16,35 @@ public class Program {
      * ArrayList
      */
     public Program() {
-
+        program = new ArrayList<>();
     }
 
     /**
      * Gets the size of the current program.
+     *
      * @return size of program
      */
     public int getSize() {
-        return 0;
+        return program.size();
     }
 
     /**
      * Grabs an instance of a bytecode at an index.
+     *
      * @param programCounter index of bytecode to get.
      * @return a bytecode.
      */
     public ByteCode getCode(int programCounter) {
-        return null;
+        return program.get(programCounter);
     }
 
     /**
      * Adds a bytecode instance to the Program List.
+     *
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
-
+        program.add(c);
     }
 
     /**

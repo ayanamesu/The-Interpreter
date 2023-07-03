@@ -28,6 +28,8 @@ public class GoToCode implements ByteCode {
         GoToCode c = new GoToCode(x);
         System.out.println(c);
     }
+
+
 }
 
 

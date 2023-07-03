@@ -33,7 +33,15 @@ public class VirtualMachine {
         this.programCounter = pc;
     }
 
+    public int getProgramCounter() {
+        return programCounter;
+    }
+
     public int pop() {
         return runTimeStack.pop();
+    }
+
+    public void pushReturnAddress(int address) {
+        returnAddress.push(address);
     }
 }
