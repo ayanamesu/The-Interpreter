@@ -73,19 +73,16 @@ public class BopCode implements ByteCode {
 
         // Set the dump option to true
         vm.dumpOn();
-
+        BopCode bopCode = new BopCode(new String[]{"+"});
         // Push some values onto the stack
         vm.push(5);
         vm.push(3);
 
-        // Create an instance of BopCode with the appropriate operator
-        BopCode bopCode = new BopCode(new String[]{"+"});
-
-        // Execute the BopCode
+        // Execute the Bop bytecode
         bopCode.execute(vm);
 
-        // Print the resulting stack
-
+        // Print the bytecode dump syntax
+        System.out.println(bopCode.toString());
     }
 
 
