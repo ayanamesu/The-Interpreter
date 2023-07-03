@@ -89,4 +89,16 @@ public class VirtualMachine {
     public void dumpOff() {
         dump = false;
     }
+
+
+    public int store(int offset) {
+        return runTimeStack.store(offset);
+    }
+
+    public int popReturnAddress() {
+        return returnAddress.pop();
+    }
+
+
+
 }
