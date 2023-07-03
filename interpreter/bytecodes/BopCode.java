@@ -85,7 +85,7 @@ public class BopCode implements ByteCode {
         bopCode.execute(vm);
 
         // Print the resulting stack
-        vm.getRunTimeStack().dump();
+
     }
 
 

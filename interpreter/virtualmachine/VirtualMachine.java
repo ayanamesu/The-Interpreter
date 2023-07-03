@@ -46,9 +46,7 @@ public class VirtualMachine {
         this.isRunning = isRunning;
     }
 
-    public RunTimeStack getRunTimeStack() {
-        return runTimeStack;
-    }
+
 
     public int peek() {
         return runTimeStack.peek();
