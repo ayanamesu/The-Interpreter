@@ -9,6 +9,7 @@ public class VirtualMachine {
     private Program        program;
     private int            programCounter;
     private boolean        isRunning;
+    private boolean         dump;
 
     public VirtualMachine(Program program) {
         this.program = program;
@@ -58,6 +59,10 @@ public class VirtualMachine {
     }
 
 
-
-
+    public void dumpOn() {
+        dump = true;
+    }
+    public void dumpOff() {
+        dump = false;
+    }
 }
