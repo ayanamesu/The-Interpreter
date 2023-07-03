@@ -45,6 +45,10 @@ public class VirtualMachine {
         runTimeStack.popFrame();
     }
 
+    public int load(int offset) {
+        return runTimeStack.load(offset);
+    }
+
     public void pushReturnAddress(int address) {
         returnAddress.push(address);
     }
