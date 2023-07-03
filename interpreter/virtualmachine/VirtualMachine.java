@@ -99,6 +99,10 @@ public class VirtualMachine {
         return returnAddress.pop();
     }
 
+    public int getReturnAddress() {
+        return returnAddress.peek();
+    }
+
 
 
 }
