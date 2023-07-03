@@ -1,5 +1,8 @@
 package interpreter.virtualmachine;
 
+import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.DumpCode;
+
 import java.util.Stack;
 
 public class VirtualMachine {
@@ -18,6 +21,23 @@ public class VirtualMachine {
         this.programCounter = 0;
     }
 
+
+    public void executeProgram() {  //changed from protected to public
+
+        runTimeStack = new RunTimeStack();
+        returnAddress = new Stack<>();
+        isRunning = true;
+        while(isRunning) {
+            ByteCode newCode = program.getCode(programCounter);
+            newCode.execute(this);
+            if (dump && !(newCode instanceof DumpCode)) {
+                System.out.println(newCode.toString());
+                runTimeStack.dump();
+            }
+            programCounter++;
+        }
+    }
+
     public void push(int valueToPush) {
         this.runTimeStack.push(valueToPush);
     }
@@ -26,8 +46,16 @@ public class VirtualMachine {
         this.isRunning = isRunning;
     }
 
+    public RunTimeStack getRunTimeStack() {
+        return runTimeStack;
+    }
+
     public int peek() {
         return runTimeStack.peek();
+    }
+
+    public int pop() {
+        return runTimeStack.pop();
     }
 
     public void setProgramCounter(int pc) {
@@ -38,9 +66,7 @@ public class VirtualMachine {
         return programCounter;
     }
 
-    public int pop() {
-        return runTimeStack.pop();
-    }
+
 
     public void popFrame() {
         runTimeStack.popFrame();

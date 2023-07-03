@@ -9,7 +9,7 @@ public interface ByteCode {
             case "HALT" -> new HaltCode(args);
             case "WRITE" -> new WriteCode(args);
             case "ARGS" -> new ArgsCode();
-//            case "BOP" -> new BopCode(args);
+            case "BOP" -> new BopCode(args);
             case "CALL" -> new CallCode(args);
             case "DUMP" -> new DumpCode(args);
             case "FALSEBRANCH" -> new FalseBranchCode(args);
