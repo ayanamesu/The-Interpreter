@@ -9,9 +9,9 @@ public class StoreCode implements ByteCode {
     private VirtualMachine vm;
     public StoreCode(String[] args) {
         if (args.length > 0) {
-            offset = Integer.parseInt(args[0]);
+            offset = Integer.parseInt(args[1]);
             if (args.length > 1) {
-                id = args[1];
+                id = args[2];
             }
         }
 
@@ -28,23 +28,5 @@ public class StoreCode implements ByteCode {
 
     }
 
-
-
-    public static void main(String[] args) {
-        // Create an instance of the VirtualMachine
-        VirtualMachine vm = new VirtualMachine(new Program());
-        vm.push(0);
-        vm.push(1);
-        vm.push(2);
-        vm.push(3);
-
-        StoreCode store1 = new StoreCode(new String[]{"1", "k"});
-        store1.execute(vm);
-        System.out.println(store1.toString());
-
-
-
-
-    }
 }
 

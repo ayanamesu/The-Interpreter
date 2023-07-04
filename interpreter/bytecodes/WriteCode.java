@@ -15,7 +15,6 @@ public class WriteCode implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        // Print the top value of the runtime stack
         System.out.println(vm.peek());
     }
 
@@ -25,13 +24,6 @@ public class WriteCode implements ByteCode {
         return "WRITE";
     }
 
-    public static void main(String[] args) {
-            // Create an instance of WriteCode
-            WriteCode writeCode = new WriteCode(args);
-
-            // Print the dumping syntax using the toString method
-            System.out.println(writeCode.toString());
-        }
-    }
+}
 
 

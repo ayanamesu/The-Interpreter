@@ -25,21 +25,5 @@ public class ReadCode implements ByteCode {
         return "READ ";
     }
 
-        public static void main(String[] args) {
-            // Create an instance of the VirtualMachine
-            VirtualMachine vm = new VirtualMachine(new Program());
-
-            // Enable dumping
-            vm.dumpOn();
-
-            // Create an instance of the ReadCode bytecode
-            ReadCode readCode = new ReadCode(new String[]{});
-
-            // Execute the ReadCode bytecode
-            readCode.execute(vm);
-
-            // Dump the bytecode
-            System.out.println(readCode.toString());
-    }
 
 }

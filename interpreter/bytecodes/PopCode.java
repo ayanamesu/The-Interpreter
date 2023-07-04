@@ -5,8 +5,8 @@ import interpreter.virtualmachine.VirtualMachine;
 public class PopCode implements ByteCode {
     private int popCode;
     public PopCode(String[] args) {
-        if (args.length > 0) {
-            popCode = Integer.parseInt(args[0]);
+        if (args.length > 1) {
+            popCode = Integer.parseInt(args[1]);
         }
     }
 
@@ -21,11 +21,4 @@ public class PopCode implements ByteCode {
         return "POP " + popCode;
     }
 
-    public static void main(String[] args) {
-        // Create an instance of PopCode
-        PopCode popCode = new PopCode(new String[]{"3"});
-
-        // Print the Pop bytecode dump syntax
-        System.out.println(popCode.toString());
-    }
 }

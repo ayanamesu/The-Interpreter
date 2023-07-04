@@ -1,12 +1,12 @@
 package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 public class GoToCode implements ByteCode {
-    private String id;
+    private String label;
     private int valueToPush;
 
     public GoToCode(String[] args) {
         if (args.length > 0) {
-            id = args[0];
+            label = args[0];
             }
         }
 
@@ -14,20 +14,19 @@ public class GoToCode implements ByteCode {
         public void execute (VirtualMachine vm){
             vm.setProgramCounter(this.valueToPush);
         }
+    public String getLabel() {
+        return label;
+    }
 
-        public void setAddress () {
-            this.valueToPush = valueToPush;
-        }
+        public void setAddress(int address) {
+        this.valueToPush = address;
+    }
 
         @Override
         public String toString () {
-            return "GOTO " + id;
+            return "GOTO " + label;
         }
-    public static void main(String[] args) {
-        String[] x = {"label", "1"};
-        GoToCode c = new GoToCode(x);
-        System.out.println(c);
-    }
+
 
 
 }

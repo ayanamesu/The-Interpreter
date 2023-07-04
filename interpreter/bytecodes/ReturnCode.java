@@ -12,8 +12,8 @@ public class ReturnCode implements ByteCode {
     private int returnValue = 0;
 
     public ReturnCode(String[] args) {
-        if (args.length > 0) {
-            functionName = args[0];
+        if (args.length > 1) {
+            functionName = args[1];
         }
     }
     public void init(ArrayList<String> args) {
@@ -47,24 +47,7 @@ public class ReturnCode implements ByteCode {
         return returnValue;
     }
 
-    public static void main(String[] args) {
-        // Create an instance of the VirtualMachine
-        VirtualMachine vm = new VirtualMachine(new Program());
-        vm.push(4); // Push a return value to the stack
 
-        // Populate the return address stack with a dummy return address
-        vm.pushReturnAddress(0);
-
-        // Create a ReturnCode instance
-        ReturnCode returnCode = new ReturnCode(new String[]{"f<<2>>"});
-        ArrayList<String> arguments = new ArrayList<>();
-        arguments.add("f<<2>>");
-        returnCode.init(arguments); // Initialize the arguments list
-        returnCode.execute(vm);
-
-        // Dump the ReturnCode
-        System.out.println(returnCode.toString());
-    }
 }
 
 

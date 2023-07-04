@@ -1,9 +1,7 @@
 package interpreter.virtualmachine;
 
-import interpreter.bytecodes.ByteCode;
-import interpreter.bytecodes.CallCode;
-import interpreter.bytecodes.FalseBranchCode;
-import interpreter.bytecodes.GoToCode;
+import interpreter.bytecodes.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,16 +53,32 @@ public class Program {
      * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
      */
     public void resolveAddress() {
-        for (int i = 0; i < this.program.size(); i++) {
-            ByteCode bc = this.program.get(i);
-            if(bc instanceof  GoToCode goToCode) {
-                goToCode.setAddress();
-            } else if (bc instanceof  FalseBranchCode falseBranchCode) {
-                falseBranchCode.setAddress();
+        HashMap<String, Integer> labelMap = new HashMap<>();
 
+        // First pass: store label positions in a HashMap
+        for (int i = 0; i < program.size(); i++) {
+            ByteCode bc = program.get(i);
+            if (bc instanceof LabelCode labelCode) {
+                String label = labelCode.getLabel();
+                labelMap.put(label, i);
+            }
+        }
+
+        // Second pass: resolve addresses for GoTo, Call, and FalseBranch bytecodes
+        for (int i = 0; i < program.size(); i++) {
+            ByteCode bc = program.get(i);
+            if (bc instanceof GoToCode goToCode) {
+                String label = goToCode.getLabel();
+                int address = labelMap.get(label);
+                goToCode.setAddress(address);
             } else if (bc instanceof CallCode callCode) {
-                callCode.setAddress();
-
+                String label = callCode.getLabel();
+                int address = labelMap.get(label);
+                callCode.setAddress(address);
+            } else if (bc instanceof FalseBranchCode falseBranchCode) {
+                String label = falseBranchCode.getLabel();
+                int address = labelMap.get(label);
+                falseBranchCode.setAddress(address);
             }
         }
     }

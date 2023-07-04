@@ -6,10 +6,10 @@ public class LoadCode implements ByteCode {
     private int offset;
     private String id;
     public LoadCode(String[] args) {
-        if (args.length > 0) {
-            offset = Integer.parseInt(args[0]);
-            if (args.length > 1) {
-                id = args[1];
+        if (args.length > 1) {
+            offset = Integer.parseInt(args[1]);
+            if (args.length > 2) {
+                id = args[2];
             }
         }
     }
@@ -36,11 +36,5 @@ public class LoadCode implements ByteCode {
         }
     }
 
-    public static void main(String[] args) {
-        // Create an instance of LoadCode with arguments
-        LoadCode loadCode = new LoadCode(new String[]{"2", "j"});
 
-        // Print the Load bytecode dump syntax
-        System.out.println(loadCode.toString());
-    }
 }

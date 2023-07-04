@@ -10,7 +10,9 @@ public class LabelCode implements ByteCode {
             label = args[0];
         }
     }
-
+    public String getLabel() {
+        return label;
+    }
     @Override
     public void execute(VirtualMachine vm) {
 
@@ -20,18 +22,4 @@ public class LabelCode implements ByteCode {
         return "LABEL " + label;
     }
 
-    public static void main(String[] args) {
-        // Create an instance of LabelCode with a label
-        LabelCode labelCode = new LabelCode(new String[]{"label"});
-
-        // Enable dumping
-        VirtualMachine vm = new VirtualMachine(new Program());
-        vm.dumpOn();
-
-        // Execute the LabelCode bytecode
-        labelCode.execute(vm);
-
-        // Dump the bytecode
-        System.out.println(labelCode.toString());
-    }
 }

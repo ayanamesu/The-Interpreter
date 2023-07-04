@@ -3,11 +3,11 @@ import interpreter.virtualmachine.VirtualMachine;
 
 
 public class FalseBranchCode implements ByteCode {
-    private String id;
-    private int valueToPush;
+    private String label;
+    private int address;
     public FalseBranchCode(String[] args) {
         if (args.length > 0) {
-            id = args[0];
+            label = args[0];
         }
     }
 
@@ -15,22 +15,20 @@ public class FalseBranchCode implements ByteCode {
     public void execute(VirtualMachine vm) {
         int value = vm.pop(); // Remove the top value from the stack
         if (value == 0) {
-            vm.setProgramCounter(valueToPush); // Jump to the resolved address if value is 0
+            vm.setProgramCounter(address); // Jump to the resolved address if value is 0
         } // If value is not 0, move to the next ByteCode (do nothing)
     }
 
-    public void setAddress() {
-        this.valueToPush = valueToPush;
+    public void setAddress(int newAddress) {
+        this.address = newAddress;
+    }
+
+    public String getLabel() {
+        return label;
     }
     @Override
     public String toString() {
-        return "FALSEBRANCH " + id;
+        return "FALSEBRANCH " + label;
     }
-
-    public static void main(String[] args) {
-        String[] x = {"label", "1"};
-        FalseBranchCode c = new FalseBranchCode(x);
-        System.out.println(c);
-        }
-    }
+}
 

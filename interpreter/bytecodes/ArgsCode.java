@@ -26,14 +26,4 @@ public class ArgsCode implements ByteCode {
         return "ARGS " + argsCode;
     }
 
-    public static void main(String[] args) {
-        // Create an instance of ArgsCode
-        ArgsCode argsCode = new ArgsCode();
-
-        // Set the number of args for the new call frame
-        argsCode.init(List.of("10"));
-
-        // Print the Args bytecode dump syntax
-        System.out.println(argsCode.toString());
-    }
 }
