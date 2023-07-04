@@ -58,8 +58,8 @@ public class Program {
         // First pass: store label positions in a HashMap
         for (int i = 0; i < program.size(); i++) {
             ByteCode bc = program.get(i);
-            if (bc instanceof LabelCode labelCode) {
-                String label = labelCode.getLabel();
+            if (bc instanceof LabelCode) {
+                String label = ((LabelCode) bc).getLabel();
                 labelMap.put(label, i);
             }
         }
@@ -67,18 +67,18 @@ public class Program {
         // Second pass: resolve addresses for GoTo, Call, and FalseBranch bytecodes
         for (int i = 0; i < program.size(); i++) {
             ByteCode bc = program.get(i);
-            if (bc instanceof GoToCode goToCode) {
-                String label = goToCode.getLabel();
+            if (bc instanceof GoToCode) {
+                String label = ((GoToCode) bc).getLabel();
                 int address = labelMap.get(label);
-                goToCode.setAddress(address);
-            } else if (bc instanceof CallCode callCode) {
-                String label = callCode.getLabel();
+                ((GoToCode) bc).setAddress(address);
+            } else if (bc instanceof CallCode) {
+                String label = ((CallCode) bc).getLabel();
                 int address = labelMap.get(label);
-                callCode.setAddress(address);
-            } else if (bc instanceof FalseBranchCode falseBranchCode) {
-                String label = falseBranchCode.getLabel();
+                ((CallCode) bc).setAddress(address);
+            } else if (bc instanceof FalseBranchCode) {
+                String label = ((FalseBranchCode) bc).getLabel();
                 int address = labelMap.get(label);
-                falseBranchCode.setAddress(address);
+                ((FalseBranchCode) bc).setAddress(address);
             }
         }
     }

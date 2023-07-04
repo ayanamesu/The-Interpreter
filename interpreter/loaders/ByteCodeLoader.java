@@ -53,27 +53,3 @@ public final class ByteCodeLoader {
         return program;
      }
 }
-
-//        BufferedReader reader = null;
-//        try {
-//            reader = new BufferedReader(new FileReader(codSourceFileName));
-//            reader.readLine();
-//            reader.close();
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            try {
-//                reader.close();
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//            throw new RuntimeException(e);
-//        }finally {
-//            try {
-//                reader.close();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-//        }
