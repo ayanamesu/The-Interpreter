@@ -13,6 +13,7 @@ public class VirtualMachine {
     private int            programCounter;
     private boolean        isRunning;
     private boolean         dump;
+    private String         callCodeVars;
 
     public VirtualMachine(Program program) {
         this.program = program;
@@ -99,10 +100,11 @@ public class VirtualMachine {
         return returnAddress.pop();
     }
 
-    public int getReturnAddress() {
-        return returnAddress.peek();
+    public void setCallCodeVars(String vars) {
+        this.callCodeVars = vars;
     }
 
-
-
+    public String getCallCodeVars() {
+        return callCodeVars;
+    }
 }
