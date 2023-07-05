@@ -6,7 +6,9 @@ public class CallCode implements ByteCode {
     private int address;
 
     public CallCode(String[] args) {
-
+        if (args.length > 0) {
+            this.label = args[1];
+        }
 
     }
 
@@ -29,7 +31,6 @@ public class CallCode implements ByteCode {
         return "CALL " + label + " <<" + address + ">> " + label + "()";
     }
 }
-
 
 
 

@@ -17,29 +17,37 @@ class RunTimeStack {
         framePointer.add(0);
     }
 
-    public int peek() {
-        return runTimeStack.get(runTimeStack.size() - 1);
-    }
 
 
 
     public String dump() {
-        StringBuilder result = new StringBuilder();
-        int frameIndex = 0;
-        for (int i = 0; i < framePointer.size(); i++) {
-            int beginning = framePointer.get(i);
-            int end = (i + 1 < framePointer.size()) ? framePointer.get(i + 1) : runTimeStack.size();
-            result.append("[");
-            for (int j = beginning; j < end; j++) {
-                result.append(runTimeStack.get(j));
-                if (j != end - 1)
-                    result.append(", ");
+        String str = "";
+
+        if (!framePointer.isEmpty()) {
+            for (int i = 0; i < framePointer.size(); i++) {
+                str += "[";
+                int start = framePointer.get(i);
+                int end = (i == framePointer.size() - 1) ? runTimeStack.size() - 1 : framePointer.get(i + 1) - 1;
+
+                for (int j = start; j <= end; j++) {
+                    str += runTimeStack.get(j);
+                    str += ",";
+                }
+
+                if (str.charAt(str.length() - 1) == ',') {
+                    str = str.substring(0, str.length() - 1);
+                }
+
+                str += "] ";
             }
-            result.append("]");
-            if (i != framePointer.size() - 1)
-                result.append(" ");
         }
-        return result.toString();
+
+        System.out.println(str);
+        return str;
+    }
+
+    public int peek() {
+        return runTimeStack.get(runTimeStack.size() - 1);
     }
 
 
@@ -49,29 +57,32 @@ class RunTimeStack {
     }
 
     public int pop() {
-        return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+        int size_of_curr_frame = runTimeStack.size() - framePointer.peek();
+        int topStack = 0;
+        if (size_of_curr_frame >= 1) {  //verifying that we have a frame big enough to pop(size >=1)
+            topStack = runTimeStack.get(runTimeStack.size() - 1);
+            runTimeStack.remove(runTimeStack.size() - 1);
+        }
+        return topStack;
     }
 
     public int store(int offsetFromFramePointer) {
         int value = runTimeStack.get(runTimeStack.size() - 1);
-        int frameIndex = framePointer.peek();
-        int storeIndex = frameIndex + offsetFromFramePointer;
-        runTimeStack.set(storeIndex, value);
+        runTimeStack.remove(runTimeStack.size() - 1);
+        runTimeStack.set(offsetFromFramePointer + framePointer.peek(), value);
         return value;
     }
 
-    public int load(int offsetFromFramePointer) {
-        int frameIndex = framePointer.peek();
-        int loadIndex = frameIndex + offsetFromFramePointer;
-        int value = runTimeStack.get(loadIndex);
+    public int load(int offset) {
+        int value = runTimeStack.get(framePointer.peek()) + offset;
         runTimeStack.add(value);
         return value;
     }
 
+
     public void newFrameAt(int offsetFromTopOfRunStack) {
         int frameIndex = runTimeStack.size() - offsetFromTopOfRunStack;
         framePointer.push(frameIndex);
-
     }
 
 
@@ -80,44 +91,6 @@ class RunTimeStack {
         for (int i = runTimeStack.size() - 1; i >= frameIndex; i--) {
             runTimeStack.remove(i);
         }
-    }
-
-    public static void main(String[] args) {
-        RunTimeStack rts = new RunTimeStack();
-        rts.push(1);
-        rts.push(2);
-        rts.push(3);
-        rts.push(4);
-        rts.newFrameAt(1);
-        rts.push(5);
-        rts.push(6);
-        rts.push(7);
-        rts.push(8);
-        rts.newFrameAt(2);
-//        rts.popFrame();
-
-
-
-
-        assert rts.runTimeStack.get(rts.framePointer.peek()+0) == 6;
-
-        String stackDump = rts.dump();
-        System.out.println(stackDump);
-
-        System.out.print("Frame pointers: ");
-        for (int i = 0; i < rts.framePointer.size(); i++) {
-            int frame = rts.framePointer.get(i);
-            System.out.print(frame);
-            if (i != rts.framePointer.size() - 1) {
-                System.out.print(" ");
-            }
-        }
-        System.out.println();
-//
-//        assert rts.runTimeStack.size() == 4;
-//        rts.runTimeStack.forEach(v -> System.out.println(v));
-//        System.out.println(rts.pop());
-
     }
 }
 

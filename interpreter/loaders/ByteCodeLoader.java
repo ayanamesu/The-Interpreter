@@ -51,5 +51,5 @@ public final class ByteCodeLoader {
             throw new RuntimeException(e);
         }
         return program;
-     }
+    }
 }

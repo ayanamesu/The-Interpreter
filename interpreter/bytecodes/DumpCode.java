@@ -8,7 +8,7 @@ public class DumpCode implements ByteCode {
 
     public DumpCode(String[] args) {
         if (args.length > 0) {
-            dumps = args[0];
+            dumps = args[1];
         }
     }
 

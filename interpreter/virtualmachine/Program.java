@@ -69,16 +69,28 @@ public class Program {
             ByteCode bc = program.get(i);
             if (bc instanceof GoToCode) {
                 String label = ((GoToCode) bc).getLabel();
-                int address = labelMap.get(label);
-                ((GoToCode) bc).setAddress(address);
+                Integer address = labelMap.get(label);
+                if (address != null) {
+                    ((GoToCode) bc).setAddress(address);
+                } else {
+                    throw new RuntimeException("Label not found: " + label);
+                }
             } else if (bc instanceof CallCode) {
                 String label = ((CallCode) bc).getLabel();
-                int address = labelMap.get(label);
-                ((CallCode) bc).setAddress(address);
+                Integer address = labelMap.get(label);
+                if (address != null) {
+                    ((CallCode) bc).setAddress(address);
+                } else {
+                    throw new RuntimeException("Label not found: " + label);
+                }
             } else if (bc instanceof FalseBranchCode) {
                 String label = ((FalseBranchCode) bc).getLabel();
-                int address = labelMap.get(label);
-                ((FalseBranchCode) bc).setAddress(address);
+                Integer address = labelMap.get(label);
+                if (address != null) {
+                    ((FalseBranchCode) bc).setAddress(address);
+                } else {
+                    throw new RuntimeException("Label not found: " + label);
+                }
             }
         }
     }

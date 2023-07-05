@@ -16,7 +16,8 @@ public class LoadCode implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        vm.load(offset);
+        vm.
+                load(offset);
     }
 
     public void init(List<String> args) {
