@@ -6,7 +6,7 @@ public class GoToCode implements ByteCode {
 
     public GoToCode(String[] args) {
         if (args.length > 0) {
-            label = args[0];
+            label = args[1];
             }
         }
 

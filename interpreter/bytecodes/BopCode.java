@@ -6,8 +6,8 @@ import interpreter.virtualmachine.VirtualMachine;
 public class BopCode implements ByteCode {
     private String operator;
     public BopCode(String[] args) {
-        if (args.length > 0) {
-            operator = args[0];
+        if (args.length > 1) {
+            operator = args[1];
         }
     }
 

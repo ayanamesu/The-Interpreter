@@ -5,9 +5,16 @@ import interpreter.virtualmachine.VirtualMachine;
 import java.util.List;
 public class ArgsCode implements ByteCode {
 
-    int argsCode = 0;
-    public ArgsCode() {
+    private int argsCode;
+
+    public ArgsCode(String[] args) {
+        if (args.length > 0) {
+            argsCode = Integer.parseInt(args[1]);
+        } else {
+            argsCode = 0;
+        }
     }
+
 
 
     @Override
@@ -15,12 +22,7 @@ public class ArgsCode implements ByteCode {
         vm.newFrameAt(argsCode);
     }
 
-    public void init(List<String> args) {
-        // Extract the number of args from the arguments list
-        if (args.size() > 0) {
-            argsCode = Integer.parseInt(args.get(0));
-        }
-    }
+
 
     public String toString() {
         return "ARGS " + argsCode;

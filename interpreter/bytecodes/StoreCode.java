@@ -6,15 +6,14 @@ import interpreter.virtualmachine.VirtualMachine;
 public class StoreCode implements ByteCode {
     private int offset;
     private String id;
-    private VirtualMachine vm;
+
     public StoreCode(String[] args) {
-        if (args.length > 0) {
+        if (args.length > 1) {
             offset = Integer.parseInt(args[1]);
-            if (args.length > 1) {
-                id = args[2];
+            if (args.length > 2) {
+                id = args[3];
             }
         }
-
     }
 
     @Override
@@ -22,6 +21,9 @@ public class StoreCode implements ByteCode {
         vm.store(offset);
     }
 
+
+
+    @Override
     public String toString() {
         return "STORE " + offset + " " + id;
 

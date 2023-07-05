@@ -7,7 +7,7 @@ public class LabelCode implements ByteCode {
     private String label;
     public LabelCode(String[] args) {
         if (args.length > 0) {
-            label = args[0];
+            label = args[1];
         }
     }
     public String getLabel() {

@@ -7,8 +7,8 @@ public interface ByteCode {
         return switch (type) {
             case "LIT" -> new LitCode(args);
             case "HALT" -> new HaltCode(args);
-            case "WRITE" -> new WriteCode(args);
-            case "ARGS" -> new ArgsCode();
+            case "WRITE" -> new WriteCode();
+            case "ARGS" -> new ArgsCode(args);
             case "BOP" -> new BopCode(args);
             case "CALL" -> new CallCode(args);
             case "DUMP" -> new DumpCode(args);
@@ -17,8 +17,8 @@ public interface ByteCode {
             case "LABEL" -> new LabelCode(args);
             case "LOAD" -> new LoadCode(args);
             case "POP" -> new PopCode(args);
-            case "READ" -> new ReadCode(args);
-            case "RETURN" -> new ReturnCode(args);
+            case "READ" -> new ReadCode();
+            case "RETURN" -> new ReturnCode();
             case "STORE" -> new StoreCode(args);
             default -> throw new IllegalArgumentException();
         };

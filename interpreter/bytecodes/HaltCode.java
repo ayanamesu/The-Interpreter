@@ -11,7 +11,7 @@ public class HaltCode implements ByteCode{
     @Override
     public String toString() {
         // The Halt bytecode is not required to be dumped, so return an empty string
-        return "";
+        return "HALT";
     }
 }
 

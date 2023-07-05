@@ -6,7 +6,7 @@ import java.util.List;
 public class WriteCode implements ByteCode {
     private ArrayList<String> arguments;
 
-    public WriteCode(String[] args) {
+    public WriteCode() {
     }
 
     public void init(ArrayList<String> args) {

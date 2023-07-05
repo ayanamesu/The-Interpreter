@@ -1,7 +1,4 @@
 package interpreter.bytecodes;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import interpreter.virtualmachine.VirtualMachine;
 
 public class CallCode implements ByteCode {
@@ -9,29 +6,28 @@ public class CallCode implements ByteCode {
     private int address;
 
     public CallCode(String[] args) {
-        if (args.length > 0) {
-            label = args[1];
-        }
+
+
     }
-    @Override
-    public void execute(VirtualMachine vm) {
-        vm.pushReturnAddress(vm.getProgramCounter() + 1);
-        vm.setProgramCounter(address - 1);
+
+    public void setAddress(int address) {
+        this.address = address;
     }
+
     public String getLabel() {
         return label;
     }
+
+    @Override
+    public void execute(VirtualMachine vm) {
+        vm.pushReturnAddress(vm.getProgramCounter());
+        vm.setProgramCounter(address);
+    }
+
     @Override
     public String toString() {
-        String baseId = label.split("<<")[0];
-        String args = label.substring(baseId.length() + 2).replace("<", "").replace(">>", ",");
-        return "CALL " + label + " " + baseId + "(" + args + ")";
+        return "CALL " + label + " <<" + address + ">> " + label + "()";
     }
-
-    public void setAddress(int newAddress) {
-        this.address = newAddress;
-    }
-
 }
 
 

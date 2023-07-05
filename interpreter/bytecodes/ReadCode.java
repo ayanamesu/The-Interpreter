@@ -5,8 +5,6 @@ import interpreter.virtualmachine.VirtualMachine;
 import java.util.Scanner;
 public class ReadCode implements ByteCode {
     Scanner scanner = new Scanner(System.in);
-    public ReadCode(String[] args) {
-    }
 
     @Override
     public void execute(VirtualMachine vm) {

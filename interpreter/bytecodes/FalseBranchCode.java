@@ -7,7 +7,7 @@ public class FalseBranchCode implements ByteCode {
     private int address;
     public FalseBranchCode(String[] args) {
         if (args.length > 0) {
-            label = args[0];
+            label = args[1];
         }
     }
 
