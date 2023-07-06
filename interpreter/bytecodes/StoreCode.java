@@ -11,7 +11,7 @@ public class StoreCode implements ByteCode {
         if (args.length > 1) {
             offset = Integer.parseInt(args[1]);
             if (args.length > 2) {
-                id = args[2]; // Update the index from 3 to 2
+                id = args[2];
             }
         }
     }
@@ -31,4 +31,3 @@ public class StoreCode implements ByteCode {
     }
 
 }
-

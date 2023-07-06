@@ -1,48 +1,47 @@
 package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ReturnCode implements ByteCode {
-    private ArrayList<String> arguments;
+    private String[] arguments;
+    private int returnValue;
 
-    public ReturnCode() {
-        arguments = new ArrayList<>();
-    }
+    public String label;
 
-    public ReturnCode(ArrayList<String> args) {
+    public ReturnCode(String[] args) {
         arguments = args;
+        if (args.length > 1) {
+            label = args[1];
+        } else {
+            label = null;
+        }
     }
 
     @Override
     public void execute(VirtualMachine vm) {
-        int returnValue = vm.pop(); // Pop the top value from the runtime stack
-        vm.popFrame(); // Empty the current frame
-        vm.setProgramCounter(vm.popReturnAddress()); // Pop the top of the return address stack and save it into the program counter
-        vm.push(returnValue); // Store the return value at the top of the runtime stack
+        returnValue = vm.pop();
+        vm.popFrame();
+        vm.setProgramCounter(vm.popReturnAddress());
+        vm.push(returnValue);
     }
 
     @Override
     public String toString() {
-        String return_str = "RETURN";
+        String returnStr = "RETURN";
 
-        if (!arguments.isEmpty()) {
-            return_str += " " + arguments.get(0) + "    exit ";
-            String arg0 = arguments.get(0);
-            int base_id = arg0.indexOf("<<");
-            if (base_id != -1) {
-                String base_id_str = arg0.substring(0, base_id);
-                return_str += base_id_str + ":";
+        if (arguments.length > 1 && label != null) {
+            String argument = arguments[1];
+            returnStr += " " + argument + " EXIT ";
+            int baseIdIndex = argument.indexOf("<<");
+            if (baseIdIndex != -1) {
+                String baseIdStr = argument.substring(0, baseIdIndex);
+                returnStr += baseIdStr + ":";
             }
+            returnStr += label + " : " + returnValue;
         }
 
-        return return_str;
+        return returnStr;
     }
 }
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@ public interface ByteCode {
             case "LOAD" -> new LoadCode(args);
             case "POP" -> new PopCode(args);
             case "READ" -> new ReadCode();
-            case "RETURN" -> new ReturnCode();
+            case "RETURN" -> new ReturnCode(args);
             case "STORE" -> new StoreCode(args);
             default -> throw new IllegalArgumentException();
         };

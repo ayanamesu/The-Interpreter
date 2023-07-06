@@ -44,7 +44,7 @@ public class VirtualMachine {
     }
 
     public void halt() {
-        this.isRunning = isRunning;
+        this.isRunning = false;
     }
 
 

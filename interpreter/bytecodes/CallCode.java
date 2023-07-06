@@ -47,6 +47,3 @@ public class CallCode implements ByteCode {
         return "CALL " + label + " " + id + "(" + "" + ")";
     }
 }
-
-
-
