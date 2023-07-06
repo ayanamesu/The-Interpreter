@@ -49,7 +49,7 @@ class RunTimeStack {
     public int peek() {
         if (runTimeStack.size() != 0)
             return runTimeStack.get(runTimeStack.size() - 1);
-     else return 1;
+     else return 0;
     }
 
 
