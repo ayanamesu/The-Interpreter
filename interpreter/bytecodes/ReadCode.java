@@ -8,7 +8,7 @@ public class ReadCode implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        System.out.print("Please enter an int: ");
+        System.out.print("Please enter an integer: ");
         int userInput = scanner.nextInt();
         vm.push(userInput);
 

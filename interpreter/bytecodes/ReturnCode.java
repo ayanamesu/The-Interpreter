@@ -37,9 +37,9 @@ public class ReturnCode implements ByteCode {
             int baseIdIndex = argument.indexOf("<<");
             if (baseIdIndex != -1) {
                 String baseIdStr = argument.substring(0, baseIdIndex);
-                returnStr += baseIdStr + ":";
+                returnStr += baseIdStr;
             }
-            returnStr += label + " : " + returnValue;
+            returnStr +=  " : " + returnValue;
         }
 
         return returnStr;

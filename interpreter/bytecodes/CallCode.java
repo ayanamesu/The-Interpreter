@@ -4,14 +4,14 @@ import interpreter.virtualmachine.VirtualMachine;
 public class CallCode implements ByteCode {
     private String label;
     private int address;
-    private String vars;
+    private int returnValue;
 
 
     public CallCode(String[] args) {
         if (args.length > 0) {
             this.label = args[1];
             if (args.length > 2) {
-                this.vars = args[2];
+                returnValue = Integer.parseInt(args[2]);
             }
         }
 
@@ -28,8 +28,7 @@ public class CallCode implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        vm.setCallCodeVars("");
-        vm.setCallCodeVars(vars);
+        this.returnValue = vm.peek();
         vm.pushReturnAddress(vm.getProgramCounter());
         vm.setProgramCounter(address);
     }
@@ -43,7 +42,9 @@ public class CallCode implements ByteCode {
             }
             id += String.valueOf(label.charAt(i));
         }
-
-        return "CALL " + label + " " + id + "(" + "" + ")";
+        if (this.returnValue == 0)
+            return "CALL " + label + " " + id + "()";
+        else
+            return "CALL " + label + " " + id + "(" + this.returnValue + ")";
     }
 }

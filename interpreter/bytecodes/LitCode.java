@@ -25,16 +25,9 @@ public class LitCode implements ByteCode{
         String base = "LIT " + this.valueToPush;
 
         if(this.id != null) {
-            base += " "+ this.id + "\tint " +  this.id;
+            base += " "+ "\tint " +  this.id;
         }
         return base;
     }
-
-//    public static void main(String[] args) {
-//        String[] x = {"LIT", "1"};
-//        LitCode c = new LitCode(x);
-//        System.out.println(c);
-//     }
-
 }
 

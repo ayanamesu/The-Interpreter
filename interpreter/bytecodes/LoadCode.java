@@ -31,7 +31,7 @@ public class LoadCode implements ByteCode {
     @Override
     public String toString() {
         if (id != null) {
-            return "LOAD " + offset + " " + id;
+            return "LOAD " + offset + " " + id + "\t<load " + id +">";
         } else {
             return "LOAD " + offset;
         }
