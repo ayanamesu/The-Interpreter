@@ -41,7 +41,6 @@ class RunTimeStack {
                 str += "] ";
             }
         }
-
         System.out.println(str);
         return str;
     }

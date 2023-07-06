@@ -9,6 +9,10 @@ public class HaltCode implements ByteCode{
     public void execute(VirtualMachine vm) {
         vm.halt(); // Request the VirtualMachine to halt execution
     }
+    @Override
+    public String toString() {
+        return "";
+    }
 
 }
 
