@@ -13,7 +13,7 @@ public class VirtualMachine {
     private int            programCounter;
     private boolean        isRunning;
     private boolean         dump;
-    private String         callCodeVars;
+
 
     public VirtualMachine(Program program) {
         this.program = program;
