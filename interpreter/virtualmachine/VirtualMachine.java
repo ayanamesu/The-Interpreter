@@ -100,11 +100,4 @@ public class VirtualMachine {
         return returnAddress.pop();
     }
 
-    public void setCallCodeVars(String vars) {
-        this.callCodeVars = vars;
-    }
-
-    public String getCallCodeVars() {
-        return callCodeVars;
-    }
 }
