@@ -1,8 +1,5 @@
 package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class ReturnCode implements ByteCode {
     private String[] arguments;

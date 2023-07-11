@@ -13,7 +13,6 @@ public class HaltCode implements ByteCode{
     public String toString() {
         return "";
     }
-
 }
 
 

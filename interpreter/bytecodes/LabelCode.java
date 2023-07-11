@@ -1,6 +1,4 @@
 package interpreter.bytecodes;
-
-import interpreter.virtualmachine.Program;
 import interpreter.virtualmachine.VirtualMachine;
 
 public class LabelCode implements ByteCode {

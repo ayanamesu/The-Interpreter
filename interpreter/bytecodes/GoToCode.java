@@ -26,9 +26,6 @@ public class GoToCode implements ByteCode {
         public String toString () {
             return "GOTO " + label;
         }
-
-
-
 }
 
 

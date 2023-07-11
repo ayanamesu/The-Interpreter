@@ -12,7 +12,7 @@ public class LitCode implements ByteCode{
         }
 
     }
-    // Test Execute later
+
     @Override
     public void execute(VirtualMachine vm) {
         vm.push(this.valueToPush);
