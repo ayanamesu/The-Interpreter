@@ -23,7 +23,7 @@ public class VirtualMachine {
     }
 
 
-    public void executeProgram() {  //changed from protected to public
+    public void executeProgram() {
 
         runTimeStack = new RunTimeStack();
         returnAddress = new Stack<>();
